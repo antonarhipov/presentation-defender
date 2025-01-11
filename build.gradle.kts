@@ -29,12 +29,51 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "prentattion-defender"
+            packageName = "presentation-defender"
             packageVersion = "1.0.0"
+            
+            macOS {
+                // Temporarily disable icon for macOS
+                // iconFile.set(project.file("icon.icns"))
+                bundleID = "com.example.presentation-defender"
+                signing {
+                    sign.set(false)
+                }
+            //   signing {
+            //       sign.set(true)
+            //       identity.set("Developer ID Application: Your Name (TEAM_ID)")
+            //   }
+                // notarization {
+                //     appleID.set("your.email@example.com")
+                //     password.set("@keychain:AC_PASSWORD")
+                //     teamID.set("TEAM_ID")
+                // }
+            }
+            
+            windows {
+                // Temporarily disable icon for Windows
+                // iconFile.set(project.file("icon.ico"))
+                upgradeUuid = "61c59277-2771-4c68-8c7e-b6ebf499bf3c"
+                menuGroup = "Presentation Defender"
+                perUserInstall = true
+            }
+            
+            linux {
+                // Temporarily disable icon for Linux
+                // iconFile.set(project.file("icon.png"))
+                packageName = "presentation-defender"
+                debMaintainer = "example@example.com"
+                menuGroup = "Utilities"
+            }
+
+            modules("java.sql")
+            
+            copyright = " 2025 Your Name"
+            vendor = "Your Name"
+            description = "A timer application for presentations"
         }
     }
 }
-
 
 kotlin {
     jvmToolchain {
