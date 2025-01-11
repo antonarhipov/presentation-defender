@@ -270,8 +270,12 @@ fun EntryItem(entry: TimerEntry, isEditMode: Boolean, index: Int, viewModel: Tim
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(text = entry.description)
-                        Text(text = "${entry.duration}")
-                        Row {
+                        Row(
+                            horizontalArrangement = Arrangement.End,
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.weight(1f).padding(horizontal = 8.dp)
+                        ) {
+                            Text(text = "${entry.duration}", modifier = Modifier.padding(end = 16.dp))
                             Button(
                                 onClick = { isEditing = true },
                                 modifier = Modifier.padding(end = 8.dp)
@@ -302,7 +306,10 @@ fun EntryItem(entry: TimerEntry, isEditMode: Boolean, index: Int, viewModel: Tim
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(text = entry.description)
-                    Text(text = entry.getRemainingTimeFormatted())
+                    Text(
+                        text = entry.getRemainingTimeFormatted(),
+                        modifier = Modifier.padding(start = 16.dp)
+                    )
                 }
                 LinearProgressIndicator(
                     progress = entry.progress.toFloat(),

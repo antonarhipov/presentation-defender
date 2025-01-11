@@ -34,3 +34,17 @@ compose.desktop {
         }
     }
 }
+
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+
+    sourceSets.all {
+        languageSettings {
+            version = 2.0
+        }
+    }
+
+}
